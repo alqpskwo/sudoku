@@ -23,27 +23,27 @@ def test_empty():
 
 
 def test_rows():
-    assert puzzle.is_consistent(p.get_row_vals(0))
-    assert puzzle.is_consistent(p.get_row_vals(4))
-    assert puzzle.is_consistent(p.get_row_vals(7))
+    assert sudoku.puzzle.is_consistent(p.get_row_vals(0))
+    assert sudoku.puzzle.is_consistent(p.get_row_vals(4))
+    assert sudoku.puzzle.is_consistent(p.get_row_vals(7))
 
 def test_cols():
-    assert puzzle.is_consistent(p.get_col_vals(1))
-    assert puzzle.is_consistent(p.get_col_vals(3))
-    assert puzzle.is_consistent(p.get_col_vals(5))
+    assert sudoku.puzzle.is_consistent(p.get_col_vals(1))
+    assert sudoku.puzzle.is_consistent(p.get_col_vals(3))
+    assert sudoku.puzzle.is_consistent(p.get_col_vals(5))
 
 def test_squares():
-    assert puzzle.is_consistent(p.get_square_vals(0, 0))
-    assert puzzle.is_consistent(p.get_square_vals(3, 0))
-    assert puzzle.is_consistent(p.get_square_vals(6, 3))
+    assert sudoku.puzzle.is_consistent(p.get_square_vals(0, 0))
+    assert sudoku.puzzle.is_consistent(p.get_square_vals(3, 0))
+    assert sudoku.puzzle.is_consistent(p.get_square_vals(6, 3))
 
 def test_complete():
     p.complete()
     assert_equal(p.values, p_solved.values)
-    assert_raises(puzzle.NoSolutionError, p_inconsistent.complete)
+    assert_raises(sudoku.puzzle.NoSolutionError, p_inconsistent.complete)
 
 def test_reduce():
-    p = puzzle.Puzzle()
+    p = sudoku.puzzle.Puzzle()
     p.complete()
     print(p.render())
     values = p.render()
